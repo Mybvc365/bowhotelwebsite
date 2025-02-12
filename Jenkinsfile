@@ -15,7 +15,7 @@ pipeline {
                     withAWS(region:'us-east-1',credentials:'Jenkins-cred') { 
                         sh 'echo "Uploading content with AWS creds"' 
                         s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', 
-                        bucket:'s3jenkinsgroup2') 
+                        bucket:'s3jenkingroup2') 
                         } 
                     } 
                 } 
