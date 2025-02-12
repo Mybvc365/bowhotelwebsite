@@ -14,7 +14,8 @@ pipeline {
                 steps { 
                     withAWS(region:'us-east-1',credentials:'Jenkins-cred') { 
                         sh 'echo "Uploading content with AWS creds"' 
-                        s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'*.*', 
+                        s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, workingDir: '.', // Upload from current workspace
+                        includePathPattern: '**', // Upload all files and subdirectories, 
                         bucket:'s3jenkingroup2') 
                         } 
                     } 
